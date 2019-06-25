@@ -1,17 +1,4 @@
 # -*- coding: utf-8 -*-
-# -----------------------------------------------------------------------------------------
-# author     = "Sameh K. Mohamed"
-# copyright  = "Copyright 2019, The Project"
-# credits    = ["Sameh K. Mohamed"]
-# license    = "MIT"
-# version    = "0.0.0"
-# maintainer = "Sameh K. Mohamed"
-# email      = "sameh.kamaleldin@gmail.com"
-# status     = "Development"
-# -----------------------------------------------------------------------------------------
-# Created by sameh at 2019-06-15
-# -----------------------------------------------------------------------------------------
-
 
 import random
 from collections import Iterable
