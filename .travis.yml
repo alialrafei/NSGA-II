@@ -1,24 +1,11 @@
 language: python
 python:
-  - "3.3"
-  - "3.4"
-  - "3.5"
-  - "3.6"
-
-before_install:
-  - wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh
-  - chmod +x miniconda.sh
-  - ./miniconda.sh -b
-  - export PATH=/home/travis/miniconda3/bin:$PATH
-  - conda update --yes conda
-
+  - '3.3'
+  - '3.4'
+  - '3.5'
+  - '3.6'
 install:
-  - conda create --yes -n test python=$TRAVIS_PYTHON_VERSION
-  - conda activate test
-
-script:
-  - git clone https://github.com/uniopt/libevolve.git
-  - cd libevolve
-  - python setup.py install
-  - cd test
-  - py.test
+  - 'pip install -r requirements.txt'
+script: 'python -m pytest --cov=pyblizzard tests --cov-report=xml'
+after_success:
+  - 'python-codacy-coverage -r coverage.xml'
