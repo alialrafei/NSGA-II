@@ -1,3 +1,12 @@
-from ._base import *
+# -*- coding: utf-8 -*-
 
-__all__ = ["InputParam", "EvoParam", "EvoFlagParam", "EvoIntParam", "EvoFloatParam", "EvoCategoricalParam"]
+from ._base import *
+from .go import Individual
+
+__all__ = ["InputParam",
+           "EvoParam",
+           "EvoFlagParam",
+           "EvoIntParam",
+           "EvoFloatParam",
+           "EvoCategoricalParam",
+           "Individual"]
