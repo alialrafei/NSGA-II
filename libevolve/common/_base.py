@@ -21,6 +21,7 @@ class InputParam:
         self.val_type = None
         self._val = param_value
 
+    @property
     def current_value(self):
         """ Get current value
 
@@ -83,6 +84,7 @@ class EvoParam(InputParam):
         """
         if isinstance(value_range, Iterable):
             self._value_range = value_range
+            self._val = self.get_rand_value()
 
 
 class EvoFlagParam(EvoParam):
@@ -122,6 +124,7 @@ class EvoIntParam(EvoParam):
         val_range = list(range(min_val, max_val+1))
         super().__init__(name=name, value_range=val_range, seed=seed)
         self.type = int
+        self._val = self.get_rand_value()
 
     def set_max_value(self, max_value):
         """ Set parameter range max value
@@ -187,6 +190,7 @@ class EvoFloatParam(EvoIntParam):
         val_range = [v for v in range(int(min_val*step), int((max_val+step)*step))]
         self._value_range = val_range
         self.type = float
+        self._val = self.get_rand_value()
 
     def set_step_value(self, step):
         """ Set parameter range step value
@@ -225,3 +229,4 @@ class EvoCategoricalParam(EvoParam):
         """
         super().__init__(name=name, value_range=categories, seed=seed)
         self.type = None
+        self._val = self.get_rand_value()
